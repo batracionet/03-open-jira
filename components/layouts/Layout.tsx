@@ -3,7 +3,7 @@ import { FC } from "react";
 import Head from "next/head";
 
 import { Box } from "@mui/material";
-import { NavBar } from "../ui";
+import { NavBar, Sidebar } from "../ui";
 
 
 
@@ -23,7 +23,7 @@ export const Layout:FC<Props> = ({title = "Open Jira", children}) => {
        </Head>
 
        <NavBar />
-       {/* SideBar */}
+       <Sidebar />
        <Box sx={{padding: '10x 20px'}}>
            {children}
        </Box>
