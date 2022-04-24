@@ -3,20 +3,25 @@ import { ChangeEvent, useState, useContext } from 'react';
 import { Button, Box, TextField } from "@mui/material"
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import { EntriesContext } from '../../context/entries';
+import { EntriesContext} from '../../context/entries';
+import { UIContext } from '../../context/ui/UIContext';
+
+
 
 
 
 export const NewEntry = () => {
 
     const {addNewEntry} = useContext(EntriesContext)
+    const {isAddingEntry,setIsAddingEntry} = useContext(UIContext)
 
-    const [isAdding, setisAdding] = useState(false);
+    
     const [inputValue, setInputValue] = useState('');
     const [touched, setTouched] = useState(false);
 
     const onTextFieldChanged = (event:ChangeEvent<HTMLInputElement>) => {
 
+        console.log(event.target.value);
         setInputValue(event.target.value);
 
 
@@ -27,8 +32,10 @@ export const NewEntry = () => {
         if (inputValue.length === 0) return;
 
         addNewEntry(inputValue);
+
+        setIsAddingEntry(false);
+
         
-        setisAdding(false);
         setTouched(false);
         setInputValue('');
     }
@@ -39,7 +46,8 @@ export const NewEntry = () => {
     >
     {
 
-        isAdding ? (
+        isAddingEntry ? (
+        
             <>
             <TextField 
                 fullWidth
@@ -58,7 +66,8 @@ export const NewEntry = () => {
             <Box display='flex' justifyContent='space-between'>
             <Button
                 variant='text'
-                onClick={()=> setisAdding(false)}
+                
+                onClick={()=> setIsAddingEntry(false)}
                 
             >
                 Cancelar
@@ -83,7 +92,8 @@ export const NewEntry = () => {
                 fullWidth
                 variant='outlined'
                 startIcon={<AddCircleOutlineOutlinedIcon />}
-                onClick={()=> setisAdding(true)}
+                
+                onClick={()=> setIsAddingEntry(true)}
             >
 
                 Agregar Tarea

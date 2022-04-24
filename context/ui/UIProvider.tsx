@@ -7,11 +7,13 @@ type Props = {
 
 export interface UIState {
      sideMenuOpen:boolean;
+     isAddingEntry:boolean;
 
    }
 
    const UI_INITIAL_STATE: UIState = {
      sideMenuOpen:false,
+     isAddingEntry:false,
    }
 
 export const UIProvider:FC<Props> = ({ children }) => {
@@ -30,6 +32,12 @@ const closeSideMenu = () =>{
 
 }
 
+const setIsAddingEntry = (isAddingEntry:boolean) =>{
+
+  dispatch({type: 'UI - Set Adding Entry' ,payload:isAddingEntry })
+
+}
+
    return (
      <UIContext.Provider value={{
       ...state,
@@ -37,6 +45,8 @@ const closeSideMenu = () =>{
       //Methods
       openSideMenu,
       closeSideMenu,
+      
+      setIsAddingEntry,
      }}>
          { children }
      </UIContext.Provider>
