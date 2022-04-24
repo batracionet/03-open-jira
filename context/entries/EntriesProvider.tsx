@@ -14,26 +14,7 @@ type Props = {
 };
 
    const ENTRIES_INITIAL_STATE: EntriesState = {
-    entries:[
-        {
-            _id: uuidv4(),
-            description:'pending Proident una',
-            status:'pending',
-            createdAt: Date.now(),
-        },
-        {
-            _id: uuidv4(),
-            description:'in-progress Proident dos',
-            status:'in-progress',
-            createdAt: Date.now() - 1000000,
-        },
-        {
-            _id: uuidv4(),
-            description:'finished Proident tres',
-            status:'finished',
-            createdAt: Date.now() - 100000,
-        }
-    ],
+    entries:[],
    }
 
 export const EntriesProvider:FC<Props> = ({ children }) => {
