@@ -20,7 +20,7 @@ export const NavBar = () => {
             >
                 <MenuOutlinedIcon/>
             </IconButton>
-            <Typography variant="h6">Open Jira</Typography>
+            <Typography variant="h6">Devias Open Jira</Typography>
         </Toolbar>
 
     </AppBar>

@@ -9,7 +9,7 @@ import { EntryList,NewEntry } from '../components/ui';
 
 const HomePage: NextPage = () => {
   return (
-    <Layout title= 'Home - OpenJira'>
+    <Layout title= 'Home - Devias Jira '>
      
      <Grid container spacing={2}>
 
