@@ -14,6 +14,12 @@ Renombrar el archivo .env.template a .env
 
 MONGO_URL=mongodb://localhost:27017/entriesdb
 
+Reconstruir modulos de node
+yarn install
+
+Levantar Next
+yarn dev
+
 Llenar la base de datos con información de pruebas
 
 Llamara:
